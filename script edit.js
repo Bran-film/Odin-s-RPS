@@ -1,5 +1,6 @@
-// Vars
+// vars
 
+// Scores and Round(moves)
 let playerScore = 0;
 let computerScore = 0;
 let round = 0;
@@ -9,11 +10,11 @@ const rockBtn = document.querySelector(".rock");
 const paperBtn = document.querySelector(".paper");
 const scissorBtn = document.querySelector(".scissors");
 
-// Choices
+//Opponent Options
 const playerOptions = [rockBtn, paperBtn, scissorBtn];
 const computerOptions = ["rock", "paper", "scissors"];
 
-// computer Pick
+// computerOption
 
 const getComputerChoice = () => {
   let computerChoice = Math.floor(Math.random() * computerOptions.length);
@@ -21,18 +22,19 @@ const getComputerChoice = () => {
   // console.log(computerChoice);
 };
 
-// Player Pick
+//Player Choice
 
 const getPlayerChoice = () => {
   playerOptions.forEach((option) => {
     option.addEventListener("click", function () {
-      const playerChoice = this.textContent;
       const rounds = document.querySelector(".rounds");
       round++;
       rounds.innerText = `Round: ${1 + round}`;
 
-      playRound(playerChoice, getComputerChoice());
+      // Function to check who wins
+      winner(this.innerText, getComputerChoice());
 
+      // Calling gameOver function after 10 moves
       if (round == 5) {
         gameOver(playerOptions, rounds);
       }
@@ -40,8 +42,7 @@ const getPlayerChoice = () => {
   });
 };
 
-// Round
-const playRound = (player, computer) => {
+const winner = (player, computer) => {
   const result = document.querySelector(".result");
   const playerScoreBoard = document.querySelector(".p-count");
   const computerScoreBoard = document.querySelector(".c-count");
@@ -49,34 +50,34 @@ const playRound = (player, computer) => {
   computer = computer.toLowerCase();
 
   if (player === computer) {
-    result.textContent = "A Tie, Prof. Falken";
+    result.textContent = "Tie";
   } else if (player == "rock") {
     if (computer == "paper") {
-      result.textContent = "Computer Won! Another Round?";
+      result.textContent = "Computer Won";
       computerScore++;
       computerScoreBoard.textContent = computerScore;
     } else {
-      result.textContent = "You won this round!";
+      result.textContent = "Player Won";
       playerScore++;
       playerScoreBoard.textContent = playerScore;
     }
   } else if (player == "scissors") {
     if (computer == "rock") {
-      result.textContent = "This was tough. I won!";
+      result.textContent = "Computer Won";
       computerScore++;
       computerScoreBoard.textContent = computerScore;
     } else {
-      result.textContent = "A good choice! You won!";
+      result.textContent = "Player Won";
       playerScore++;
       playerScoreBoard.textContent = playerScore;
     }
   } else if (player == "paper") {
     if (computer == "scissors") {
-      result.textContent = "A win for me!";
+      result.textContent = "Computer Won";
       computerScore++;
       computerScoreBoard.textContent = computerScore;
     } else {
-      result.textContent = "Well done!";
+      result.textContent = "Player Won";
       playerScore++;
       playerScoreBoard.textContent = playerScore;
     }
@@ -114,10 +115,3 @@ const gameOver = (playerOptions, rounds) => {
     window.location.reload();
   });
 };
-
-const game = () => {
-  getComputerChoice();
-  getPlayerChoice();
-};
-
-game();

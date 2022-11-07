@@ -33,7 +33,7 @@ body {
 }
 
 .move {
-  font-size: 3rem;
+  font-size: 2.8rem;
   text-align: center;
 }
 
@@ -72,8 +72,13 @@ button:hover {
   margin: 0 auto;
 }
 
+.rounds {
+  margin: auto 0 20px 0;
+  font-size: 2rem;
+}
+
 .result {
-  font-size: 6rem;
+  font-size: 5rem;
   margin-top: 52px;
 }
 
@@ -82,6 +87,7 @@ button:hover {
   /* bottom: 80px; */
   margin: 20px auto;
   font-size: 32px;
+  display: none;
 }
 
 footer {
