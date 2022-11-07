@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+* {
+  font-family: "VT323", monospace;
+}
+
+body {
+  background-color: rgb(29, 29, 29);
+  color: rgb(0, 212, 0);
+}
+
+.game {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.title {
+  font-size: 5rem;
+  margin: 30px auto;
+}
+
+.sub-title {
+  font-size: 1.5rem;
+  margin-bottom: 100px;
+}
+
+.move {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.choices button {
+  font-size: 42px;
+  margin: 20px auto;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.score {
+  display: flex;
+  gap: 20px;
+}
+
+.playerScore,
+.computerScore {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 32px;
+}
+
+.playerScore h2,
+.computerScore h2 {
+  margin: 0 auto;
+}
+
+.playerScore p,
+.computerScore p {
+  font-size: 46px;
+  margin: 0 auto;
+}
+
+.result {
+  font-size: 6rem;
+  margin-top: 52px;
+}
+
+.restart {
+  position: relative;
+  /* bottom: 80px; */
+  margin: 20px auto;
+  font-size: 32px;
+}
+
+footer {
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  bottom: 0;
+  margin: 20px auto;
+  text-align: center;
+}
+
+a {
+  color: rgb(0, 255, 0);
+  padding: 0 1px;
+  border-bottom: 1px solid rgb(0, 255, 0);
+  border-right: 1px solid rgb(0, 255, 0);
+  text-decoration: none;
+}
