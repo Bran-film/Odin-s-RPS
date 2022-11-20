@@ -34,6 +34,10 @@ const getPlayerChoice = () => {
       playRound(playerChoice, getComputerChoice());
 
       if (round == 5) {
+        while (computerScore === playerScore) {
+          playRound(playerChoice, getComputerChoice());
+          if (computerScore !== playerScore) break;
+        }
         gameOver(playerOptions, rounds);
       }
     });
